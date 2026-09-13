@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Challenges | ChallengeConnect</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">ChallengeConnect</div>
+
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="challenges.html">Challenges</a></li>
+          <li><a href="post-challenge.html">Post Challenge</a></li>
+          <li><a href="index.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Challenges Section -->
+    <main>
+      <section class="section">
+        <p class="section-label">DISCOVER</p>
+
+        <h1>Explore Challenges</h1>
+
+        <p class="section-description">
+          Discover real-world societal challenges and find opportunities to
+          contribute solutions.
+        </p>
+
+        <!-- Search -->
+        <div class="challenge-search">
+          <input
+            type="text"
+            id="challengeSearch"
+            placeholder="Search challenges..."
+          />
+
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+
+            <option value="education">Education</option>
+
+            <option value="health">Healthcare</option>
+
+            <option value="environment">Environment</option>
+
+            <option value="technology">Technology</option>
+
+            <option value="agriculture">Agriculture</option>
+          </select>
+        </div>
+
+        <!-- Challenge List -->
+        <div class="cards" id="challengeList">
+          <!-- Challenge 1 -->
+          <div class="card challenge-card" data-category="education">
+            <h3>Digital Education Access</h3>
+
+            <p>
+              Improve access to quality digital education for students in rural
+              areas.
+            </p>
+
+            <p>
+              <strong>Posted by:</strong>
+              Government
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              Education
+            </p>
+
+            <button
+              class="btn primary-btn"
+              onclick="viewChallenge('digital-education')"
+            >
+              View Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div class="card challenge-card" data-category="environment">
+            <h3>Smart Waste Management</h3>
+
+            <p>
+              Develop innovative solutions to improve waste collection and
+              recycling.
+            </p>
+
+            <p>
+              <strong>Posted by:</strong>
+              Citizen
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              Environment
+            </p>
+
+            <button
+              class="btn primary-btn"
+              onclick="viewChallenge('smart-waste')"
+            >
+              View Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div class="card challenge-card" data-category="health">
+            <h3>Community Healthcare Support</h3>
+
+            <p>
+              Create technology-based solutions for improving healthcare access.
+            </p>
+
+            <p>
+              <strong>Posted by:</strong>
+              Government
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              Healthcare
+            </p>
+
+            <button
+              class="btn primary-btn"
+              onclick="viewChallenge('healthcare-support')"
+            >
+              View Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div class="card challenge-card" data-category="agriculture">
+            <h3>Smart Agriculture</h3>
+
+            <p>
+              Help farmers use technology to improve productivity and reduce
+              resource usage.
+            </p>
+
+            <p>
+              <strong>Posted by:</strong>
+              Citizen
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              Agriculture
+            </p>
+
+            <button
+              class="btn primary-btn"
+              onclick="viewChallenge('smart-agriculture')"
+            >
+              View Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 5 -->
+          <div class="card challenge-card" data-category="technology">
+            <h3>Digital Public Services</h3>
+
+            <p>
+              Develop technology solutions that make government services easier
+              and more accessible for citizens.
+            </p>
+
+            <p>
+              <strong>Posted by:</strong>
+              Government
+            </p>
+
+            <p>
+              <strong>Category:</strong>
+              Technology
+            </p>
+
+            <button
+              class="btn primary-btn"
+              onclick="viewChallenge('digital-public-services')"
+            >
+              View Challenge
+            </button>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <p id="noChallenges" style="display: none">No challenges found.</p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <h3>ChallengeConnect</h3>
+
+      <p>SIH 2026</p>
+
+      <p>Connecting problems with people who can solve them.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

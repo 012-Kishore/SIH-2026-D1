@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | ChallengeConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="auth-page">
+
+        <div class="auth-container">
+
+            <h1>Create Account</h1>
+
+            <p>Join ChallengeConnect</p>
+
+            <form id="registerForm">
+
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label for="registerEmail">Email</label>
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="registerPassword">Password</label>
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <label for="role">Select Role</label>
+                <select id="role" required>
+                    <option value="">Choose your role</option>
+                    <option value="Citizen">Citizen</option>
+                    <option value="Government">Government</option>
+                    <option value="Student">Student</option>
+                    <option value="University">University</option>
+                    <option value="Industry">Industry</option>
+                </select>
+
+                <button type="submit" class="btn primary-btn">
+                    Register
+                </button>
+
+                <p id="registerError"></p>
+
+            </form>
+
+            <p class="auth-link">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+            <a href="index.html">← Back to Home</a>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

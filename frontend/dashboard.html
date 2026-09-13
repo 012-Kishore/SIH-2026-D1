@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | ChallengeConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                ChallengeConnect
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="post-challenge.html">Post Challenge</a></li>
+                <li><a href="#" onclick="logoutUser()">Logout</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Dashboard -->
+    <main>
+
+        <section class="section">
+
+            <p class="section-label">DASHBOARD</p>
+
+            <h1>Welcome to ChallengeConnect</h1>
+
+            <p class="section-description">
+                Connect with challenges, solutions and people
+                working together to create real-world impact.
+            </p>
+
+
+            <!-- User Information -->
+            <div class="dashboard-user">
+
+                <h2 id="welcomeMessage">
+                    Welcome!
+                </h2>
+
+                <p id="userRole">
+                    Role: User
+                </p>
+
+            </div>
+
+
+            <!-- Role Information -->
+            <div class="dashboard-user">
+
+                <h3 id="roleTitle">
+                    Your Role Dashboard
+                </h3>
+
+                <p id="roleDescription">
+                    Manage challenges and solutions based on your role.
+                </p>
+
+            </div>
+
+
+            <!-- Dashboard Actions -->
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Explore Challenges</h3>
+
+                    <p>
+                        Discover real-world societal challenges
+                        posted by citizens and government.
+                    </p>
+
+                    <a href="challenges.html" class="btn primary-btn">
+                        Explore
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Post a Challenge</h3>
+
+                    <p>
+                        Submit a problem that needs innovative
+                        solutions from the community.
+                    </p>
+
+                    <a href="post-challenge.html" class="btn primary-btn">
+                        Post Challenge
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>My Solutions</h3>
+
+                    <p>
+                        View and track solutions submitted
+                        by you.
+                    </p>
+
+                    <a href="my-solutions.html" class="btn primary-btn">
+                        My Solutions
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Track Progress</h3>
+
+                    <p>
+                        Monitor challenges and solutions
+                        from submission to implementation.
+                    </p>
+
+                    <a href="track-progress.html" class="btn primary-btn">
+                        Track Progress
+                    </a>
+
+                </div>
+
+                <div class="card" id="reviewSolutionsCard">
+
+                    <h3>Review Solutions</h3>
+
+                    <p>
+                        Review submitted solutions and update their progress status.
+                    </p>
+
+                    <a href="review-solutions.html" class="btn primary-btn">
+                        Review Solutions
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Role-Based Actions -->
+            <div class="dashboard-user">
+
+                <h2 id="roleActionsTitle">
+                    Role Actions
+                </h2>
+
+                <p id="roleActionsDescription">
+                    Available actions for your role.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>ChallengeConnect</h3>
+
+        <p>SIH 2026</p>
+
+        <p>
+            Connecting problems with people who can solve them.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Review Solution | ChallengeConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                ChallengeConnect
+            </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="challenges.html">Challenges</a>
+                </li>
+
+                <li>
+                    <a href="my-solutions.html">My Solutions</a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="logoutUser()">Logout</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Review Solution -->
+    <main>
+
+        <section class="section">
+
+            <p class="section-label">
+                SOLUTION REVIEW
+            </p>
+
+            <h1>
+                Review Solution
+            </h1>
+
+            <p class="section-description">
+                Review the submitted solution and update its progress status.
+            </p>
+
+
+            <!-- Solution Information -->
+            <div class="card">
+
+                <h2 id="reviewSolutionTitle">
+                    Solution
+                </h2>
+
+                <p>
+                    <strong>Challenge:</strong>
+                    <span id="reviewChallenge">
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Description:</strong>
+                    <span id="reviewDescription">
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Approach:</strong>
+                    <span id="reviewApproach">
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Expected Impact:</strong>
+                    <span id="reviewImpact">
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Current Status:</strong>
+                    <span id="currentStatus">
+                        Submitted
+                    </span>
+                </p>
+
+            </div>
+
+
+            <!-- Status Update -->
+            <div class="card">
+
+                <h3>
+                    Update Solution Status
+                </h3>
+
+                <form id="reviewForm">
+
+                    <label for="solutionStatusSelect">
+                        Select Status
+                    </label>
+
+                    <select id="solutionStatusSelect">
+
+                        <option value="Submitted">
+                            Submitted
+                        </option>
+
+                        <option value="Under Review">
+                            Under Review
+                        </option>
+
+                        <option value="Approved">
+                            Approved
+                        </option>
+
+                        <option value="Implementation">
+                            Implementation
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn">
+                        Update Status
+                    </button>
+
+                </form>
+
+                <p id="reviewMessage"></p>
+
+            </div>
+
+
+            <br>
+
+            <a
+                href="my-solutions.html"
+                class="btn secondary-btn">
+                Back to My Solutions
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>
+            ChallengeConnect
+        </h3>
+
+        <p>
+            SIH 2026
+        </p>
+
+        <p>
+            Connecting problems with people who can solve them.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

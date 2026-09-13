@@ -1,0 +1,244 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post Challenge | ChallengeConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                ChallengeConnect
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="post-challenge.html">Post Challenge</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Post Challenge Section -->
+    <main>
+
+        <section class="auth-page">
+
+            <div class="auth-container">
+
+                <h1>Post a Challenge</h1>
+
+                <p>
+                    Share a real-world problem and invite
+                    innovative solutions.
+                </p>
+
+
+                <form id="challengeForm">
+
+                    <!-- Challenge Title -->
+                    <label for="challengeTitle">
+                        Challenge Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="challengeTitle"
+                        placeholder="Enter challenge title"
+                        required
+                    >
+
+
+                    <!-- Description -->
+                    <label for="challengeDescription">
+                        Challenge Description
+                    </label>
+
+                    <textarea
+                        id="challengeDescription"
+                        rows="6"
+                        placeholder="Describe the problem in detail..."
+                        required
+                    ></textarea>
+
+
+                    <!-- Category -->
+                    <label for="challengeCategory">
+                        Category
+                    </label>
+
+                    <select id="challengeCategory" required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="education">
+                            Education
+                        </option>
+
+                        <option value="health">
+                            Healthcare
+                        </option>
+
+                        <option value="environment">
+                            Environment
+                        </option>
+
+                        <option value="technology">
+                            Technology
+                        </option>
+
+                        <option value="agriculture">
+                            Agriculture
+                        </option>
+
+                    </select>
+
+
+                    <!-- Posted By -->
+                    <label for="postedBy">
+                        Posted By
+                    </label>
+
+                    <select id="postedBy" required>
+
+                        <option value="">
+                            Select Role
+                        </option>
+
+                        <option value="Citizen">
+                            Citizen
+                        </option>
+
+                        <option value="Government">
+                            Government
+                        </option>
+
+                        <option value="Student">
+                            Student
+                        </option>
+
+                        <option value="University">
+                            University
+                        </option>
+
+                        <option value="Industry">
+                            Industry
+                        </option>
+
+                    </select>
+
+
+                    <!-- Location -->
+                    <label for="challengeLocation">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="challengeLocation"
+                        placeholder="Enter location"
+                        required
+                    >
+
+
+                    <!-- Priority -->
+                    <label for="challengePriority">
+                        Priority
+                    </label>
+
+                    <select id="challengePriority" required>
+
+                        <option value="">
+                            Select Priority
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+
+                    <!-- Deadline -->
+                    <label for="challengeDeadline">
+                        Submission Deadline
+                    </label>
+
+                    <input
+                        type="date"
+                        id="challengeDeadline"
+                        required
+                    >
+
+
+                    <!-- Submit -->
+                    <button
+                        type="submit"
+                        class="btn primary-btn"
+                    >
+                        Post Challenge
+                    </button>
+
+
+                    <!-- Message -->
+                    <p id="challengeMessage"></p>
+
+                </form>
+
+
+                <p class="auth-link">
+                    <a href="challenges.html">
+                        ← Back to Challenges
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>ChallengeConnect</h3>
+
+        <p>SIH 2026</p>
+
+        <p>
+            Connecting problems with people who can solve them.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

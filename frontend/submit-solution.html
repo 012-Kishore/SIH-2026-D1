@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Solution | ChallengeConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                ChallengeConnect
+            </div>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="challenges.html">
+                        Challenges
+                    </a>
+                </li>
+
+                <li>
+                    <a href="post-challenge.html">
+                        Post Challenge
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- Submit Solution -->
+
+    <main>
+
+        <section class="auth-page">
+
+
+            <div class="auth-container">
+
+
+                <h1>
+                    Submit Your Solution
+                </h1>
+
+
+                <p>
+                    Share your innovative idea to help solve
+                    this challenge.
+                </p>
+
+
+
+                <form id="solutionForm">
+
+
+                    <!-- Solution Title -->
+
+                    <label for="solutionTitle">
+                        Solution Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="solutionTitle"
+                        placeholder="Enter solution title"
+                        required
+                    >
+
+
+
+                    <!-- Solution Description -->
+
+                    <label for="solutionDescription">
+                        Solution Description
+                    </label>
+
+                    <textarea
+                        id="solutionDescription"
+                        rows="6"
+                        placeholder="Describe your solution..."
+                        required
+                    ></textarea>
+
+
+
+                    <!-- Technology / Approach -->
+
+                    <label for="solutionApproach">
+                        Technology / Approach
+                    </label>
+
+                    <textarea
+                        id="solutionApproach"
+                        rows="4"
+                        placeholder="Explain the technology or approach you will use..."
+                        required
+                    ></textarea>
+
+
+
+                    <!-- Expected Impact -->
+
+                    <label for="expectedImpact">
+                        Expected Impact
+                    </label>
+
+                    <textarea
+                        id="expectedImpact"
+                        rows="4"
+                        placeholder="Describe the expected impact of your solution..."
+                        required
+                    ></textarea>
+
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn"
+                    >
+                        Submit Solution
+                    </button>
+
+
+                    <!-- Message -->
+
+                    <p id="solutionMessage"></p>
+
+
+                </form>
+
+
+
+                <!-- Back -->
+
+                <p class="auth-link">
+
+                    <a href="challenges.html">
+                        ← Back to Challenges
+                    </a>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>
+            ChallengeConnect
+        </h3>
+
+        <p>
+            SIH 2026
+        </p>
+
+        <p>
+            Connecting problems with people who can solve them.
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
