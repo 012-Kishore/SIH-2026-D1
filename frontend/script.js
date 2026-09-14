@@ -5,18 +5,15 @@
 console.log("ChallengeConnect frontend loaded successfully.");
 
 
-// ==========================================
-// CHALLENGE SEARCH AND CATEGORY FILTER
-// ==========================================
+// ===============================
+// SEARCH AND CATEGORY FILTER
+// ===============================
 
 const searchInput = document.getElementById("challengeSearch");
 const categoryFilter = document.getElementById("categoryFilter");
-const challengeCards = document.querySelectorAll(".challenge-card");
 const noChallenges = document.getElementById("noChallenges");
 
-
 function filterChallenges() {
-
     const searchText = searchInput
         ? searchInput.value.toLowerCase().trim()
         : "";
@@ -25,10 +22,12 @@ function filterChallenges() {
         ? categoryFilter.value
         : "all";
 
+    const challengeCards =
+        document.querySelectorAll(".challenge-card");
+
     let visibleChallenges = 0;
 
-    document.querySelectorAll(".challenge-card").forEach(function (card) {
-
+    challengeCards.forEach(function (card) {
         const challengeText =
             card.textContent.toLowerCase();
 
@@ -43,29 +42,39 @@ function filterChallenges() {
             challengeCategory === selectedCategory;
 
         if (matchesSearch && matchesCategory) {
-
             card.style.display = "";
             visibleChallenges++;
-
         } else {
-
             card.style.display = "none";
-
         }
-
     });
 
     if (noChallenges) {
-
-        if (visibleChallenges === 0) {
-            noChallenges.style.display = "block";
-        } else {
-            noChallenges.style.display = "none";
-        }
-
+        noChallenges.style.display =
+            visibleChallenges === 0
+                ? "block"
+                : "none";
     }
-
 }
+
+// Search while typing
+if (searchInput) {
+    searchInput.addEventListener(
+        "input",
+        filterChallenges
+    );
+}
+
+// Filter when category changes
+if (categoryFilter) {
+    categoryFilter.addEventListener(
+        "change",
+        filterChallenges
+    );
+}
+
+// Run once when page loads
+filterChallenges();
 
 
 // ==========================================
@@ -1201,6 +1210,22 @@ if (solutionList) {
         solutionCard.className =
             "card";
 
+        const currentUserRole =
+            localStorage.getItem("userRole");
+
+        let reviewButton = "";
+
+        if (currentUserRole === "Government") {
+            reviewButton = `
+                <a
+                    href="review-solution.html?id=${solution.id}"
+                    class="btn secondary-btn"
+                >
+                    Review Solution
+                </a>
+            `;
+        }
+
         solutionCard.innerHTML = `
             <h3>
                 ${solution.title}
@@ -1227,12 +1252,7 @@ if (solutionList) {
                 View Solution
             </button>
 
-            <a
-                href="review-solution.html?id=${solution.id}"
-                class="btn secondary-btn"
-            >
-                Review Solution
-            </a>
+            ${reviewButton}
         `;
 
         solutionList.appendChild(
@@ -1417,6 +1437,7 @@ const protectedPages = [
     "submit-solution.html",
     "view-solution.html",
     "challenge-details.html",
+    "review-solutions.html",
     "review-solution.html"
 ];
 
@@ -1431,6 +1452,27 @@ if (
     loggedInUser !== "true"
 ) {
     window.location.href = "login.html";
+}
+
+// ==========================================
+// GOVERNMENT-ONLY REVIEW ACCESS
+// ==========================================
+
+if (
+    currentPage === "review-solutions.html" ||
+    currentPage === "review-solution.html"
+) {
+    const currentUserRole =
+        localStorage.getItem("userRole");
+
+    if (currentUserRole !== "Government") {
+        alert(
+            "Access denied. Only Government users can review solutions."
+        );
+
+        window.location.href =
+            "dashboard.html";
+    }
 }
 
 // Track Progress - Load saved solutions
@@ -1873,12 +1915,3 @@ if (reviewSolutionsList) {
     }
 }
 
-const reviewSolutionsCard = document.getElementById("reviewSolutionsCard");
-
-if (reviewSolutionsCard) {
-    const currentUserRole = localStorage.getItem("userRole");
-
-    if (currentUserRole !== "Government") {
-        reviewSolutionsCard.style.display = "none";
-    }
-}
