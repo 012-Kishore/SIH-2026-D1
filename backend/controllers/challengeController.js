@@ -54,7 +54,33 @@ const getChallenges = async (req, res) => {
     }
 };
 
+const getChallengeById = async (req, res) => {
+    try {
+        const challenge = await Challenge.findById(req.params.id);
+
+        if (!challenge) {
+            return res.status(404).json({
+                success: false,
+                message: "Challenge not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            challenge
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch challenge",
+            error: error.message
+        });
+    }
+};
+
 module.exports = {
     createChallenge,
-    getChallenges
+    getChallenges,
+    getChallengeById
 };

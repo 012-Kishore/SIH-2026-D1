@@ -4,11 +4,14 @@ const router = express.Router();
 
 const {
     createChallenge,
-    getChallenges
+    getChallenges,
+    getChallengeById
 } = require("../controllers/challengeController");
 
 router.post("/", createChallenge);
 
 router.get("/", getChallenges);
+
+router.get("/:id", getChallengeById);
 
 module.exports = router;
