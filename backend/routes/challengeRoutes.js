@@ -3,9 +3,12 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    createChallenge
+    createChallenge,
+    getChallenges
 } = require("../controllers/challengeController");
 
 router.post("/", createChallenge);
+
+router.get("/", getChallenges);
 
 module.exports = router;

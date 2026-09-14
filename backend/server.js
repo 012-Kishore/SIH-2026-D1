@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use("/api/challenges", challengeRoutes);
 
+
 const PORT = process.env.PORT || 5000;
 
 // Home route

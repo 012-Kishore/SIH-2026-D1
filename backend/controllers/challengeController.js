@@ -35,6 +35,26 @@ const createChallenge = async (req, res) => {
     }
 };
 
+const getChallenges = async (req, res) => {
+    try {
+        const challenges = await Challenge.find().sort({ createdAt: -1 });
+
+        res.status(200).json({
+            success: true,
+            count: challenges.length,
+            challenges
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch challenges",
+            error: error.message
+        });
+    }
+};
+
 module.exports = {
-    createChallenge
+    createChallenge,
+    getChallenges
 };
