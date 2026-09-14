@@ -1,5 +1,6 @@
 const Challenge = require("../models/Challenge");
 
+// Create a new challenge
 const createChallenge = async (req, res) => {
     try {
         const {
@@ -9,6 +10,13 @@ const createChallenge = async (req, res) => {
             location,
             submittedBy
         } = req.body;
+
+        if (!title || !description || !domain || !location || !submittedBy) {
+            return res.status(400).json({
+                success: false,
+                message: "All required fields must be provided"
+            });
+        }
 
         const challenge = new Challenge({
             title,
@@ -35,9 +43,33 @@ const createChallenge = async (req, res) => {
     }
 };
 
+
+// Get all challenges
 const getChallenges = async (req, res) => {
     try {
-        const challenges = await Challenge.find().sort({ createdAt: -1 });
+        const { domain, status, search } = req.query;
+
+        const filter = {};
+
+        if (domain) {
+            filter.domain = domain;
+        }
+
+        if (status) {
+            filter.status = status;
+        }
+
+        if (search) {
+            filter.$or = [
+                { title: { $regex: search, $options: "i" } },
+                { description: { $regex: search, $options: "i" } },
+                { location: { $regex: search, $options: "i" } }
+            ];
+        }
+
+        const challenges = await Challenge
+            .find(filter)
+            .sort({ createdAt: -1 });
 
         res.status(200).json({
             success: true,
@@ -54,6 +86,8 @@ const getChallenges = async (req, res) => {
     }
 };
 
+
+// Get one challenge by ID
 const getChallengeById = async (req, res) => {
     try {
         const challenge = await Challenge.findById(req.params.id);
@@ -79,8 +113,125 @@ const getChallengeById = async (req, res) => {
     }
 };
 
+
+// Update challenge status
+const updateChallengeStatus = async (req, res) => {
+    try {
+        const { status } = req.body;
+
+        if (!status) {
+            return res.status(400).json({
+                success: false,
+                message: "Status is required"
+            });
+        }
+
+        const challenge = await Challenge.findByIdAndUpdate(
+            req.params.id,
+            { status },
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+
+        if (!challenge) {
+            return res.status(404).json({
+                success: false,
+                message: "Challenge not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Challenge status updated successfully",
+            challenge
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to update challenge status",
+            error: error.message
+        });
+    }
+};
+
+
+// Delete a challenge
+const deleteChallenge = async (req, res) => {
+    try {
+        const challenge = await Challenge.findByIdAndDelete(req.params.id);
+
+        if (!challenge) {
+            return res.status(404).json({
+                success: false,
+                message: "Challenge not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Challenge deleted successfully"
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to delete challenge",
+            error: error.message
+        });
+    }
+};
+
+
+// Dashboard statistics
+const getDashboardStats = async (req, res) => {
+    try {
+        const totalChallenges = await Challenge.countDocuments();
+
+        const statusStats = await Challenge.aggregate([
+            {
+                $group: {
+                    _id: "$status",
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        const domainStats = await Challenge.aggregate([
+            {
+                $group: {
+                    _id: "$domain",
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        res.status(200).json({
+            success: true,
+            statistics: {
+                totalChallenges,
+                byStatus: statusStats,
+                byDomain: domainStats
+            }
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch dashboard statistics",
+            error: error.message
+        });
+    }
+};
+
+
 module.exports = {
     createChallenge,
     getChallenges,
-    getChallengeById
+    getChallengeById,
+    updateChallengeStatus,
+    deleteChallenge,
+    getDashboardStats
 };
