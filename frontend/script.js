@@ -1,8 +1,8 @@
 // ==========================================
-// ChallengeConnect Frontend JavaScript
+// IdeaBridge Frontend JavaScript
 // ==========================================
 
-console.log("ChallengeConnect frontend loaded successfully.");
+console.log("IdeaBridge frontend loaded successfully.");
 
 
 // ===============================
@@ -1788,7 +1788,7 @@ if (roleTitle && roleDescription) {
             "User Dashboard";
 
         roleDescription.textContent =
-            "Manage your challenges and solutions through ChallengeConnect.";
+            "Manage your challenges and solutions through IdeaBridge.";
 
     }
 
@@ -1862,7 +1862,7 @@ if (roleActionsTitle && roleActionsDescription) {
             "Available Actions";
 
         roleActionsDescription.textContent =
-            "Explore challenges and participate in ChallengeConnect.";
+            "Explore challenges and participate in IdeaBridge.";
 
     }
 
