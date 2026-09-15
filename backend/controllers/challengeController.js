@@ -6,12 +6,28 @@ const createChallenge = async (req, res) => {
         const {
             title,
             description,
+            category,
             domain,
             location,
-            submittedBy
+            postedBy,
+            submittedBy,
+            priority,
+            deadline
         } = req.body;
 
-        if (!title || !description || !domain || !location || !submittedBy) {
+        // Accept both frontend names and backend names
+        const finalDomain = domain || category;
+        const finalSubmittedBy = submittedBy || postedBy;
+
+        if (
+            !title ||
+            !description ||
+            !finalDomain ||
+            !location ||
+            !finalSubmittedBy ||
+            !priority ||
+            !deadline
+        ) {
             return res.status(400).json({
                 success: false,
                 message: "All required fields must be provided"
@@ -21,9 +37,11 @@ const createChallenge = async (req, res) => {
         const challenge = new Challenge({
             title,
             description,
-            domain,
+            domain: finalDomain,
             location,
-            submittedBy
+            submittedBy: finalSubmittedBy,
+            priority,
+            deadline
         });
 
         const savedChallenge = await challenge.save();
@@ -47,12 +65,13 @@ const createChallenge = async (req, res) => {
 // Get all challenges
 const getChallenges = async (req, res) => {
     try {
-        const { domain, status, search } = req.query;
+        const { domain, category, status, search } = req.query;
 
         const filter = {};
 
-        if (domain) {
-            filter.domain = domain;
+        // Accept both domain and category
+        if (domain || category) {
+            filter.domain = domain || category;
         }
 
         if (status) {

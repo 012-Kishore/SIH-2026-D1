@@ -17,10 +17,11 @@ const challengeSchema = new mongoose.Schema(
             required: true,
             enum: [
                 "Education",
-                "Agriculture",
                 "Healthcare",
-                "Water",
                 "Environment",
+                "Technology",
+                "Agriculture",
+                "Water",
                 "Energy",
                 "Urban Development",
                 "Accessibility",
@@ -36,6 +37,17 @@ const challengeSchema = new mongoose.Schema(
 
         submittedBy: {
             type: String,
+            required: true
+        },
+
+        priority: {
+            type: String,
+            enum: ["Low", "Medium", "High"],
+            default: "Medium"
+        },
+
+        deadline: {
+            type: Date,
             required: true
         },
 
