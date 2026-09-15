@@ -1,6 +1,7 @@
 const connectDB = require("./config/db");
 const challengeRoutes = require("./routes/challengeRoutes");
 const solutionRoutes = require("./routes/solutionRoutes");
+const projectRoutes = require("./routes/projectRoutes");
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/api/challenges", challengeRoutes);
 app.use("/api/solutions", solutionRoutes);
+app.use("/api/projects", projectRoutes);
 
 
 const PORT = process.env.PORT || 5000;
