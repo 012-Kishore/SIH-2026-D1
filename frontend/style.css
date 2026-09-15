@@ -2345,6 +2345,7 @@ body::before {
         #7c3aed
     );
 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -2529,6 +2530,7 @@ body::before {
         #818cf8
     );
 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -2806,6 +2808,7 @@ body {
         #4f46e5
     );
 
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
